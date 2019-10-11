@@ -13,5 +13,5 @@ var movieData = require('./mockData.json');
 
 Movie.insertMany(movieData, (err, docs) => {
   if (err) console.log(`can't add movie data -->`, err);
-  console.log('added movie data');
+  else console.log('added movie data');
 });
