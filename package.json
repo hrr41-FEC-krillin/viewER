@@ -1,0 +1,26 @@
+{
+  "name": "castphotos",
+  "version": "1.0.0",
+  "description": "cast photos module for FEC 'spoiled potatos'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node server/db/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr41-FEC-krillin/castphotos.git"
+  },
+  "keywords": [
+    "photos"
+  ],
+  "author": "jshamoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrr41-FEC-krillin/castphotos/issues"
+  },
+  "homepage": "https://github.com/hrr41-FEC-krillin/castphotos#readme",
+  "devDependencies": {
+    "mongoose": "^5.7.4"
+  }
+}
