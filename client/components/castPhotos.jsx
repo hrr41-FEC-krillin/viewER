@@ -6,9 +6,9 @@ const CastPhotos = (props) => (
        return (
         <div className='cast-item' key='castId'>
           <div className='cast-image'><img src={cast.imageUrl} width='100' height='120' /></div>
-          <div>{cast.actor}</div>
+          <div className='cast-actor'>{cast.actor}</div>
           <div>as</div>
-          <div>{cast.character}</div>
+          <div className='cast-character'>{cast.character}</div>
         </div>
        )
       })
