@@ -1,0 +1,11 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+h2.cp-header::before {
+  background-color: #FA320A;
+  content: ' ';
+  min-width: 20px;
+  height: 20px;
+}
