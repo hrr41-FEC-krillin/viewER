@@ -6,9 +6,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      casts: []
+      casts: [],
+      viewAll: false
     };
     this.fetch = this.fetch.bind(this);
+    this.showAll = this.showAll.bind(this);
   }
 
   componentDidMount(){
@@ -28,12 +30,16 @@ class App extends React.Component {
     })
   }
 
+  showAll(){
+    this.setState({showAll: true});
+  }
+
   render() {
     return (
       <section className="cast-section">
         <h2 className="cast-header">CAST</h2>
-        <CastPhotos data={this.state.casts}/>
-        <span>View All</span>
+        <CastPhotos data={this.state.casts} ifShow={this.state.showAll}/>
+        <span onClick={this.showAll}>View All</span>
       </section>
     )
   }

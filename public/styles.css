@@ -3,21 +3,19 @@
   box-sizing: border-box;
 }
 
-
-
-div.cast-photos{
-  width: 740px;
-  height: 200px;
-  overflow: hidden;
+section {
+  width: 750px;
 }
 
 .cast-photos {
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 .cast-item {
   margin: 15px 5px;
+  align-items: flex-start;
 }
 
 .cast-actor {
