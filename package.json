@@ -6,23 +6,36 @@
   "license": "ISC",
   "homepage": "https://github.com/hrr41-FEC-krillin/castphotos#readme",
   "keywords": [
+    "movie",
+    "cast",
     "photos"
   ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "seed": "node server/db/seed.js",
-    "start": "nodemon server/index.js"
+    "start-dev": "nodemon server/index.js",
+    "build-dev": "webpack"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.4",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "mongoose": "^5.7.4",
     "morgan": "^1.9.1",
-    "mongoose": "^5.7.4"
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
   },
   "repository": {
     "type": "git",
