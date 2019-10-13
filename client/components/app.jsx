@@ -17,7 +17,7 @@ class App extends React.Component {
 
   fetch() {
     $.ajax({
-      url: '/api/movie:id',
+      url: '/api/movie',
       method: 'GET',
       data: {id: 1},
       success: (res) => {
