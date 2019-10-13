@@ -3,9 +3,30 @@
   box-sizing: border-box;
 }
 
-h2.cp-header::before {
-  background-color: #FA320A;
-  content: ' ';
-  min-width: 20px;
-  height: 20px;
+
+
+div.cast-photos{
+  width: 740px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cast-photos {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.cast-item {
+  margin: 15px 5px;
+}
+
+.cast-actor {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+}
+
+.cast-character {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #959595;
+  font-size: 10.5px;
 }

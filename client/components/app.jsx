@@ -30,11 +30,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="cast-section">
+      <section className="cast-section">
         <h2 className="cast-header">CAST</h2>
         <CastPhotos data={this.state.casts}/>
         <span>View All</span>
-      </div>
+      </section>
     )
   }
 }
