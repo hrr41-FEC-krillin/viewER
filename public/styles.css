@@ -2,6 +2,16 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: lightgray;
+}
+
+div#cast {
+  background-color: white;
+  width: 900px;
+  position: absolute;
+}
+
 div.cast-section {
   width: 700px;
   float: right;
