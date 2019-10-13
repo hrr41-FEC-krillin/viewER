@@ -8,11 +8,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('tiny'));
+app.use(express.static('public'));
 
 app.get('/api/movie:id', (req, res) => {
   var id = req.params.id.slice(1);
   console.log(id);
   db.getCasts(id, (casts) => {
+    casts.sort((a, b) => {
+      return a.role - b.role;
+    });
     res.send(casts);
   })
 
