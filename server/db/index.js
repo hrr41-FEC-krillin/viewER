@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
+mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const MovieSchema = new mongoose.Schema({
   movieId: {type: Number, unique: true},
