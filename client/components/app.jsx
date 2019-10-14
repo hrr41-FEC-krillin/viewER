@@ -21,7 +21,7 @@ class App extends React.Component {
     $.ajax({
       url: '/api/movie',
       method: 'GET',
-      data: {id: 3},
+      data: {id: 6},
       success: (res) => {
         console.log('clent got data:', res);
         this.setState({casts: res});
@@ -35,11 +35,18 @@ class App extends React.Component {
   }
 
   render() {
+    let viewAllOrLess;
+    if (!this.state.showAll) {
+      viewAllOrLess = <div className='cast-view-all-or-less'><span>View All</span><span className='cast-arrow-down'></span></div>
+    } else {
+      viewAllOrLess = <div className='cast-view-all-or-less'><span>View Less</span><span className='cast-arrow-up'></span></div>
+    }
+
     return (
-      <div className="cast-section">
-        <h2 className="cast-header">CAST</h2>
+      <div className='cast-section'>
+        <h2 className='cast-header'>CAST</h2>
         <CastPhotos data={this.state.casts} ifShow={this.state.showAll}/>
-        <span className="cast-view-all" onClick={this.showAll}>View All</span>
+        <div onClick={this.showAll}>{viewAllOrLess}</div>
       </div>
     )
   }

@@ -10,7 +10,7 @@ const CastPhotos = (props) => {
       { props.data.slice(0, last).map(cast => {
         return (
           <div className='cast-item' key='castId'>
-            <div className='cast-image'><img src={cast.imageUrl} width='100' height='120' /></div>
+            <div className='cast-image'><img src={cast.imageUrl} alt={cast.actor}/></div>
             <div className='cast-actor'>{cast.actor}</div>
             <div className='cast-character'>as {cast.character}</div>
           </div>
