@@ -26,7 +26,7 @@ class App extends React.Component {
       method: 'GET',
       data: {id: 3},
       success: (res) => {
-        console.log('clent got data:', res);
+        console.log('client got data:', res);
         this.setState({casts: res});
       },
       error: (err) => {
