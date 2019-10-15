@@ -1,4 +1,5 @@
 import React from 'react';
+import { CastPhotosDiv, CastItem, CastImg, CastActor, CastCharacter } from '../styled.js';
 
 const CastPhotos = (props) => {
   let last = 6;
@@ -6,18 +7,18 @@ const CastPhotos = (props) => {
     last = props.data.length;
   }
   return (
-    <div className='cast-photos'>
+    <CastPhotosDiv>
       { props.data.slice(0, last).map(cast => {
         return (
-          <div className='cast-item' key='castId'>
-            <div className='cast-image'><img src={cast.imageUrl} alt={cast.actor}/></div>
-            <div className='cast-actor'>{cast.actor}</div>
-            <div className='cast-character'>as {cast.character}</div>
-          </div>
+          <CastItem key='castId'>
+            <CastImg src={cast.imageUrl} alt={cast.actor}/>
+            <CastActor>{cast.actor}</CastActor>
+            <CastCharacter>as {cast.character}</CastCharacter>
+          </CastItem>
         )
         })
       }
-    </div>
+    </CastPhotosDiv>
   )
 }
 
