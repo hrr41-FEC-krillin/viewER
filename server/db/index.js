@@ -8,10 +8,10 @@ const MovieSchema = new mongoose.Schema({
   casts: Array
 });
 
-const Movie = mongoose.model('Movie', MovieSchema);
+const MovieModel = mongoose.model('Movie', MovieSchema);
 
 var getCasts = (movieId, cb) => {
-  Movie.find({ movieId: movieId })
+  MovieModel.find({ movieId: movieId })
     .exec((err, docs) => {
       err ? console.log(err) : cb(docs[0].casts);
     });
