@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
+import {GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp} from '../styled.js';
+
 
 class App extends React.Component {
   constructor() {
@@ -34,20 +36,24 @@ class App extends React.Component {
     this.setState({showAll: !this.state.showAll});
   }
 
+
   render() {
     let viewAllOrLess;
     if (!this.state.showAll) {
-      viewAllOrLess = <div className='cast-view-all-or-less'><span>View All</span><span className='cast-arrow-down'></span></div>
+      viewAllOrLess = <CastViewAll><span>View All</span><CastArrowDown></CastArrowDown></CastViewAll>
     } else {
-      viewAllOrLess = <div className='cast-view-all-or-less'><span>View Less</span><span className='cast-arrow-up'></span></div>
+      viewAllOrLess = <CastViewAll><span>View Less</span><CastArrowUp></CastArrowUp></CastViewAll>
     }
 
     return (
-      <div className='cast-section'>
-        <h2 className='cast-header'>CAST</h2>
-        <CastPhotos data={this.state.casts} ifShow={this.state.showAll}/>
-        <div onClick={this.showAll}>{viewAllOrLess}</div>
-      </div>
+      <CastWrapper>
+        <GlobalStyle />
+        <CastSection>
+          <CastHeader>CAST</CastHeader>
+          <CastPhotos data={this.state.casts} ifShow={this.state.showAll}/>
+          <div onClick={this.showAll}>{viewAllOrLess}</div>
+        </CastSection>
+      </CastWrapper>
     )
   }
 }
