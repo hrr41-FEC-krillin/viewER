@@ -23,7 +23,7 @@ class App extends React.Component {
     $.ajax({
       url: '/api/movie',
       method: 'GET',
-      data: {id: 6},
+      data: {id: 4},
       success: (res) => {
         console.log('clent got data:', res);
         this.setState({casts: res});
