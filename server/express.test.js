@@ -5,6 +5,7 @@ describe('Test the /api/movie path', () => {
   let response;
   beforeAll( async (done) => {
     response = await request(app).get('/api/movie').query({ id: 1 });
+    responseTwo = await request(app).get('/api/movie').query({id: 6});
     done();
   });
 
@@ -35,5 +36,9 @@ describe('Test the /api/movie path', () => {
   test('Should have 20-30 casts', () => {
     expect(response.body.length).toBeWithinRange(20, 30);
   });
+
+  test('Should respond with 404 when movie does not exist', () => {
+    expect(responseTwo.statusCode).toBe(404);
+  })
 
 });
