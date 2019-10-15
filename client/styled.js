@@ -49,7 +49,7 @@ export const CastHeader = styled.h2`
 `;
 
 export const CastViewAll = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Satisfy|Roboto&display=swap');
 
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
@@ -98,16 +98,25 @@ export const CastImg = styled.img`
 `;
 
 export const CastActor = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Satisfy|Roboto&display=swap');
 
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
 `;
 
 export const CastCharacter = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Satisfy|Roboto&display=swap');
 
   font-family: 'Roboto', sans-serif;
   color: #959595;
   font-size: 10.5px;
+`;
+
+export const ErrorMessage = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Satisfy|Roboto&display=swap');
+
+  font-family: 'Satisfy', sans-serif;
+  text-align: center;
+  color: #F24130;
+  margin: 20px auto;
 `;

@@ -12,12 +12,22 @@ app.use(express.static('public'));
 
 app.get('/api/movie', (req, res) => {
   var id = req.query.id;
-  db.getCasts(id, (casts) => {
-    casts.sort((a, b) => {
-      return a.role - b.role;
+  db.getCasts(id)
+    .then(data => {
+      if (data.length === 0) {
+        res.sendStatus(404);
+      } else {
+
+        data[0].casts.sort((a, b) => {
+          return a.role - b.role;
+        });
+        res.send(data[0].casts);
+      }
+    })
+    .catch(err => {
+      console.log(err);
     });
-    res.send(casts);
-  });
+
 });
 
 

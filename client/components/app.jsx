@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
-import {GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp} from '../styled.js';
+import {GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
 
 class App extends React.Component {
@@ -9,7 +9,8 @@ class App extends React.Component {
     super();
     this.state = {
       casts: [],
-      viewAll: false
+      viewAll: false,
+      error: false
     };
     this.fetch = this.fetch.bind(this);
     this.showAll = this.showAll.bind(this);
@@ -23,12 +24,14 @@ class App extends React.Component {
     $.ajax({
       url: '/api/movie',
       method: 'GET',
-      data: {id: 4},
+      data: {id: 3},
       success: (res) => {
-        console.log('clent got data:', res);
+        console.log('client got data:', res);
         this.setState({casts: res});
       },
-      error: (err) => console.log('client ajax fail:', err)
+      error: (err) => {
+        this.setState({error: true})
+      }
     })
   }
 
@@ -38,6 +41,14 @@ class App extends React.Component {
 
 
   render() {
+    if (this.state.error) {
+      return (
+          <ErrorMessage>
+            Oops, this movie doesn't exist.
+        </ErrorMessage>
+      )
+    }
+
     let viewAllOrLess;
     if (!this.state.showAll) {
       viewAllOrLess = <CastViewAll><span>View All</span><CastArrowDown></CastArrowDown></CastViewAll>
@@ -50,7 +61,7 @@ class App extends React.Component {
         <GlobalStyle />
         <CastSection>
           <CastHeader>CAST</CastHeader>
-          <CastPhotos data={this.state.casts} ifShow={this.state.showAll}/>
+          <CastPhotos data={this.state.casts} ifShow={this.state.showAll} hasError={this.state.error}/>
           <div onClick={this.showAll}>{viewAllOrLess}</div>
         </CastSection>
       </CastWrapper>
