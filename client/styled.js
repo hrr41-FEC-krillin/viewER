@@ -95,6 +95,9 @@ export const CastImg = styled.img`
   width: 100px;
   height: 120px;
   object-fit: cover;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const CastActor = styled.div`
@@ -102,6 +105,10 @@ export const CastActor = styled.div`
 
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  :hover {
+    color: #3976DC;
+    cursor: pointer;
+  }
 `;
 
 export const CastCharacter = styled.div`
