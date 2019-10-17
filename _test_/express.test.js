@@ -1,8 +1,9 @@
 const request = require('supertest');
-const app = require('./app.js');
+const app = require('../server/app.js');
 
 describe('Test the /api/movie path', () => {
   let response;
+  let responseTwo;
   beforeAll( async (done) => {
     response = await request(app).get('/api/movie').query({ id: 1 });
     responseTwo = await request(app).get('/api/movie').query({id: 6});

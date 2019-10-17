@@ -1,8 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
-import {GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
-
+import styled from 'styled-components';
+import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
 class App extends React.Component {
   constructor() {
@@ -21,15 +21,17 @@ class App extends React.Component {
   }
 
   fetch() {
-    $.ajax({
+    var id = window.location.search.slice(4);
+    console.log('$$$$$$$$$')
+    $.get({
       url: '/api/movie',
-      method: 'GET',
-      data: {id: 3},
+      data: {id: id},
       success: (res) => {
-        console.log('client got data:', res);
+        console.log('&&&&&');
         this.setState({casts: res});
       },
       error: (err) => {
+        console.log('^^^^^^^^^')
         this.setState({error: true})
       }
     })
@@ -43,7 +45,7 @@ class App extends React.Component {
   render() {
     if (this.state.error) {
       return (
-          <ErrorMessage>
+        <ErrorMessage>
             Oops, this movie doesn't exist.
         </ErrorMessage>
       )
@@ -51,9 +53,9 @@ class App extends React.Component {
 
     let viewAllOrLess;
     if (!this.state.showAll) {
-      viewAllOrLess = <CastViewAll><span>View All</span><CastArrowDown></CastArrowDown></CastViewAll>
+      viewAllOrLess = <CastViewAll onClick={this.showAll}><span>View All</span><CastArrowDown></CastArrowDown></CastViewAll>
     } else {
-      viewAllOrLess = <CastViewAll><span>View Less</span><CastArrowUp></CastArrowUp></CastViewAll>
+      viewAllOrLess = <CastViewAll onClick={this.showAll}><span>View Less</span><CastArrowUp></CastArrowUp></CastViewAll>
     }
 
     return (
@@ -61,8 +63,8 @@ class App extends React.Component {
         <GlobalStyle />
         <CastSection>
           <CastHeader>CAST</CastHeader>
-          <CastPhotos data={this.state.casts} ifShow={this.state.showAll} hasError={this.state.error}/>
-          <div onClick={this.showAll}>{viewAllOrLess}</div>
+          <CastPhotos data={this.state.casts} ifShow={this.state.showAll} />
+          {viewAllOrLess}
         </CastSection>
       </CastWrapper>
     )
