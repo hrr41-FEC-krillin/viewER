@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('tiny'));
 app.use(express.static('public'));
 
+
 app.get('/api/movie', (req, res) => {
   var id = req.query.id;
   db.getCasts(id)
