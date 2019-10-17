@@ -22,23 +22,20 @@ class App extends React.Component {
 
   fetch() {
     var id = window.location.search.slice(4);
-    console.log('$$$$$$$$$')
     $.get({
       url: '/api/movie',
       data: {id: id},
       success: (res) => {
-        console.log('&&&&&');
         this.setState({casts: res});
       },
       error: (err) => {
-        console.log('^^^^^^^^^')
         this.setState({error: true})
       }
     })
   }
 
   showAll(){
-    this.setState({showAll: !this.state.showAll});
+    this.setState({ viewAll: !this.state.viewAll});
   }
 
 
@@ -52,7 +49,7 @@ class App extends React.Component {
     }
 
     let viewAllOrLess;
-    if (!this.state.showAll) {
+    if (!this.state.viewAll) {
       viewAllOrLess = <CastViewAll onClick={this.showAll}><span>View All</span><CastArrowDown></CastArrowDown></CastViewAll>
     } else {
       viewAllOrLess = <CastViewAll onClick={this.showAll}><span>View Less</span><CastArrowUp></CastArrowUp></CastViewAll>
@@ -63,7 +60,7 @@ class App extends React.Component {
         <GlobalStyle />
         <CastSection>
           <CastHeader>CAST</CastHeader>
-          <CastPhotos data={this.state.casts} ifShow={this.state.showAll} />
+          <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} />
           {viewAllOrLess}
         </CastSection>
       </CastWrapper>

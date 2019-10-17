@@ -10,18 +10,23 @@ import 'jsdom-global/register';
 import React from 'react';
 import { shallow, mount, render} from 'enzyme';
 import App from '../client/components/app.jsx';
-import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage, CastItem} from '../client/styled.js';
+import CastPhotos from '../client/components/castPhotos.jsx';
+import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage, CastPhotosDiv, CastItem, CastImg, CastActor, CastCharacter} from '../client/styled.js';
 import $ from 'jquery';
 import { get } from '../_mock_/ajax.js';
 
 jest.mock('jquery');
+$.get.mockImplementation(get);
+const mock = jest.spyOn($, 'get');
 
 describe('<App />', () => {
 
   let wrapper;
-  beforeEach(() => {
+  let res;
+  beforeEach(async (done) => {
     wrapper = mount(<App />);
-    $.get.mockImplementation(get);
+    res = await $.get().then((data) => data.res);
+    done();
   });
 
   afterEach(() => {
@@ -29,9 +34,21 @@ describe('<App />', () => {
   })
 
   test('Should calls $.get', () => {
-    const mock = jest.spyOn($, 'get');
     expect(mock).toBeCalled();
   });
+
+  test('Should $.get should return an Object', () => {
+    expect($.get()).resolves.toBeInstanceOf(Object);
+  });
+
+  test('Should $.get should return an array ', () => {
+    expect(Array.isArray(res)).toBe(true);
+  });
+
+  test('Should $.get should return an  of 9 items ', () => {
+    expect(res).toHaveLength(9);
+  });
+
 
   test('Should NOT contain <ErrorMessage>', () => {
     expect(wrapper.containsMatchingElement(<ErrorMessage>Oops, this movie doesn't exist.</ErrorMessage>)).toEqual(false);
@@ -47,9 +64,39 @@ describe('<App />', () => {
 
   test('Should has "View Less" when viewall is clicked', () => {
     wrapper.find('.styled__CastViewAll-nu87go-4').simulate('click');
-    // console.log(wrapper.debug({verbose: false}));
-    expect(wrapper.containsMatchingElement(<span>View Less</span>)).toEqual(true);
+    expect(wrapper.containsMatchingElement(<span>View Less</span>)).toBe(true);
   });
 
+  test('Should change viewAll to true when viewall is clicked', () => {
+    wrapper.find('.styled__CastViewAll-nu87go-4').simulate('click');
+    expect(wrapper.state('viewAll')).toBe(true);
+  });
+
+  test('Should change viewAll state to false when viewall is clicked twice', () => {
+    wrapper.find('.styled__CastViewAll-nu87go-4').simulate('click');
+    wrapper.find('.styled__CastViewAll-nu87go-4').simulate('click');
+    expect(wrapper.state('viewAll')).toBe(false);
+  });
+
+
+});
+
+describe('<CastPhotos />', () => {
+
+  let wrapper;
+  let res;
+  beforeEach(async (done) => {
+    res = await $.get().then((data) => data.res);
+    wrapper = mount(<CastPhotos data={res} />);
+    done();
+  });
+
+  afterEach(() => {
+    wrapper.unmount();
+  });
+
+  test('Should only render 6 items ', () => {
+    expect(wrapper.find('.styled__CastPhotosDiv-nu87go-7').children()).toHaveLength(6);
+  });
 
 });
