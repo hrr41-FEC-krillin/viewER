@@ -1,6 +1,7 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const MovieSchema = new mongoose.Schema({
   movieId: {type: Number, unique: true},
