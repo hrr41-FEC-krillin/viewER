@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
-export const Poop = styled.div`
-
-`;
-
 export const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
