@@ -20,7 +20,6 @@ export const CastWrapper = styled.div`
 
 export const CastSection = styled.div`
   width: 700px;
-  float: right;
   margin: 20px auto;
 `;
 
