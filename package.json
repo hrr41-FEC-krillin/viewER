@@ -14,8 +14,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles --watch",
     "seed": "node server/db/seed.js",
-    "start-dev": "nodemon server/index.js",
-    "build-dev": "webpack --watch"
+    "start": "nodemon server/index.js",
+    "build": "webpack --watch"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
