@@ -10,7 +10,7 @@ const CastPhotos = (props) => {
     <CastPhotosDiv>
       { props.data.slice(0, last).map(cast => {
         return (
-          <CastItem key='castId'>
+          <CastItem key={cast.castId}>
             <CastImg src={cast.imageUrl} alt={cast.actor}/>
             <CastActor>{cast.actor}</CastActor>
             <CastCharacter>as {cast.character}</CastCharacter>
