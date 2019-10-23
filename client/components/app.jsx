@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   fetch() {
-    var id = window.location.search.slice(4) || 0;
+    var id = window.location.search.slice(4) || 1;
     $.get({
       url: '/api/movie',
       data: {id: id},

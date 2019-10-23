@@ -13,7 +13,7 @@ import App from '../client/components/app.jsx';
 import CastPhotos from '../client/components/castPhotos.jsx';
 import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage, CastPhotosDiv, CastItem, CastImg, CastActor, CastCharacter} from '../client/styled.js';
 import $ from 'jquery';
-import { get } from '../_mock_/ajax.js';
+import { get } from '../__mock__/ajax.js';
 
 jest.mock('jquery');
 $.get.mockImplementation(get);

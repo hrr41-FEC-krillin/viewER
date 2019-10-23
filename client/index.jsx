@@ -5,5 +5,6 @@ import App from './components/app.jsx';
 
 ReactDom.render(
   <App />,
-  document.getElementById('cast')
+  /* global document */
+  document.getElementById('cast'),
 );
