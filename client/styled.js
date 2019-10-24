@@ -11,14 +11,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const CastWrapper = styled.div`
-  width: 1200px;
+  width: 800px;
   margin: 0 auto;
-  background-color: white;
-  overflow: hidden;
+  // border: 2px solid green;
 `;
 
 export const CastSection = styled.div`
-  width: 700px;
+  width: 800px;
   margin: 20px auto;
 `;
 
@@ -26,6 +25,9 @@ export const CastHeader = styled.h2`
   display: inline-block;
   margin-top: 5px;
   margin-bottom: 5px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 24px;
 
   ::before {
     content: ' ';
@@ -40,7 +42,7 @@ export const CastHeader = styled.h2`
     content: ' ';
     display: inline-block;
     background-color: #FA320A;
-    width: 576.66px;
+    width: 692px;
     height: 20px;
     margin-left: 10px;
   }
@@ -80,18 +82,18 @@ export const CastArrowUp = styled.span`
 export const CastPhotosDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
-  width: 700px;
+  width: 800px;
 `;
 
 export const CastItem = styled.div`
-  width: 110px;
-  margin: 15px 2px;
+  width: 120px;
+  margin: 10px 6px;
   align-items: flex-start;
 `;
 
 export const CastImg = styled.img`
-  width: 100px;
-  height: 120px;
+  width: 125px;
+  height: 145px;
   object-fit: cover;
   :hover {
     cursor: pointer;
