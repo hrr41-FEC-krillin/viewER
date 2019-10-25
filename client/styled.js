@@ -14,6 +14,7 @@ export const CastWrapper = styled.div`
   width: 800px;
   margin: 0 auto;
   // border: 2px solid green;
+  background-color: white;
 `;
 
 export const CastSection = styled.div`
