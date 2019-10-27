@@ -2,7 +2,9 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .catch(err => console.error(err));
 
 const MovieSchema = new mongoose.Schema({
   movieId: { type: Number, unique: true },
@@ -16,5 +18,8 @@ const getCasts = (movieId) => (
   MovieModel.find({ movieId }).exec()
 );
 
+const getMovies = () => {
+  MovieModel.find({}).exec()
+};
 
-module.exports = { getCasts, MovieModel };
+module.exports = { getCasts, MovieModel, getMovies };

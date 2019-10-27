@@ -4,6 +4,7 @@ import CastPhotos from './castPhotos.jsx';
 import styled from 'styled-components';
 import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
+
 class App extends React.Component {
   constructor() {
     super();
@@ -21,14 +22,16 @@ class App extends React.Component {
   }
 
   fetch() {
-    var id = window.location.search.slice(4) || 1;
+    let id = window.location.search.slice(4) || 1;
     $.get({
-      url: 'http://localhost:5050/api/movie',
+      url: `http://localhost:5050/api/movie`,
       data: {id: id},
       success: (res) => {
+        console.log(res);
         this.setState({casts: res});
       },
       error: (err) => {
+        console.log(err);
         this.setState({error: true})
       }
     })

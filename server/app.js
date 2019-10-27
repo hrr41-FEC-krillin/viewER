@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const db = require('./db');
 
-
 const app = express();
 
 app.use(cors());
@@ -12,7 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use(express.static('public'));
-
 
 app.get('/api/movie', (req, res) => {
   const { id } = req.query;
@@ -26,8 +24,8 @@ app.get('/api/movie', (req, res) => {
       }
     })
     .catch((err) => {
-      console.error(err);
-      res.sendStatus(404);
+      console.error('>>>', err);
+      res.sendStatus(500);
     });
 });
 

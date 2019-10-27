@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mongo:
+    container_name: mongo
+    restart: always
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  webapp:
+    container_name: castphotos
+    restart: always
+    build: .
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017/castphotos
+      - PORT=5050
+    ports:
+      - '5050:5050'
+    links:
+      - mongo

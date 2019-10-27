@@ -42,12 +42,20 @@ function populateMovieData() {
   return movieData;
 }
 
+/** Seed database */
 const movieData = populateMovieData();
 
 const Console = console;
 const db = require('./index.js');
+const mongoose = require('mongoose');
+
+Console.log('Seed file is running');
 
 db.MovieModel.insertMany(movieData, (err, _docs) => {
   if (err) console.error('can\'t add movie data -->', err);
-  else Console.log('added movie data');
+  else {
+    Console.log('added movie data');
+    mongoose.disconnect();
+    Console.log('connection closed');
+  }
 });
