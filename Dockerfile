@@ -3,5 +3,5 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 5050
+EXPOSE 80
 CMD ["npm", "run", "docker-build"]

@@ -24,7 +24,7 @@ class App extends React.Component {
   fetch() {
     let id = window.location.search.slice(4) || 1;
     $.get({
-      url: `http://localhost:5050/api/movie`,
+      url: `/api/movie`,
       data: {id: id},
       success: (res) => {
         console.log(res);

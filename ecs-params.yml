@@ -1,0 +1,9 @@
+version: 1
+task_definition:
+  services:
+    webapp:
+      cpu_shares: 100
+      mem_limit: 1342177280
+    mongo:
+      cpu_shares: 100
+      mem_limit: 1342177280
