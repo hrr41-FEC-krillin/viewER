@@ -1,7 +1,7 @@
 module.exports = {
   'extends': [
     'airbnb-base',
-    'plugin: react/recommended
+    'plugin: react/recommended'
   ],
   'parserOptions' :{
     'ecmaFeatures' : {
