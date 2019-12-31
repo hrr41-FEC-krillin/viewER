@@ -131,18 +131,26 @@ export const ErrorMessage = styled.div`
 
 export const BackDrop = styled.div`
   display: ${props => props.display};
+  width: 820px;
   height: 600px;
-  width: 700px;
+  margin: 0 auto;
   background-color: rgb(13, 13, 13, 0.8);
   position: absolute;
   top: 20px;
-  left: 400px;
+  left: 240px;
 
+`;
+
+export const CloseButton = styled.button`
+  display: block;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
 `;
 
 export const ModalImage = styled.img`
   width: 400px;
   height: 500px;
   object-fit: cover;
-  margin: 50px auto;
-`
+  margin: 30px 210px;
+`;
