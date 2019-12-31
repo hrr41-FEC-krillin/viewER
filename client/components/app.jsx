@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
+import PhotoModal from './photoModal.jsx';
 import styled from 'styled-components';
 import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
@@ -11,10 +12,13 @@ class App extends React.Component {
     this.state = {
       casts: [],
       viewAll: false,
-      error: false
+      error: false,
+      showModal: false,
+      targetImgUrl: '',
     };
     this.fetch = this.fetch.bind(this);
     this.showAll = this.showAll.bind(this);
+    this.togglePhotoModal = this.togglePhotoModal.bind(this);
   }
 
   componentDidMount(){
@@ -27,13 +31,20 @@ class App extends React.Component {
       url: `/api/movie`,
       data: {id: id},
       success: (res) => {
-        console.log(res);
+        // console.log(res);
         this.setState({casts: res});
       },
       error: (err) => {
         console.log(err);
         this.setState({error: true})
       }
+    })
+  }
+
+  togglePhotoModal(targetImgUrl) {
+    this.setState({
+      showModal: !this.state.showModal,
+      targetImgUrl: targetImgUrl,
     })
   }
 
@@ -59,14 +70,17 @@ class App extends React.Component {
     }
 
     return (
-      <CastWrapper>
-        <GlobalStyle />
-        <CastSection>
-          <CastHeader>CAST</CastHeader>
-          <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} />
-          {viewAllOrLess}
-        </CastSection>
-      </CastWrapper>
+      <div>
+        <CastWrapper>
+          <GlobalStyle />
+          <CastSection>
+            <CastHeader>CAST</CastHeader>
+            <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} togglePhotoModal={this.togglePhotoModal}/>
+            {viewAllOrLess}
+          </CastSection>
+        </CastWrapper>
+        <PhotoModal targetImgUrl={this.state.targetImgUrl} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} />
+      </div>
     )
   }
 }

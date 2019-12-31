@@ -4,6 +4,11 @@ import { CastPhotosDiv, CastItem, CastImg, CastActor, CastCharacter } from '../s
 class CastPhotos extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.togglePhotoModal(e.target.src);
   }
 
   render(){
@@ -15,8 +20,8 @@ class CastPhotos extends React.Component {
       <CastPhotosDiv>
         { this.props.data.slice(0, last).map(cast => {
           return (
-            <CastItem key={cast.castId}>
-              <CastImg src={cast.imageUrl} alt={cast.actor}/>
+            <CastItem key={cast.castId} onClick={e => this.handleClick(e)}>
+              <CastImg id={cast.castId} src={cast.imageUrl} alt={cast.actor}/>
               <CastActor>{cast.actor}</CastActor>
               <CastCharacter>as {cast.character}</CastCharacter>
             </CastItem>

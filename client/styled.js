@@ -128,3 +128,21 @@ export const ErrorMessage = styled.div`
   color: #F24130;
   margin: 20px auto;
 `;
+
+export const BackDrop = styled.div`
+  display: ${props => props.display};
+  height: 600px;
+  width: 700px;
+  background-color: rgb(13, 13, 13, 0.8);
+  position: absolute;
+  top: 20px;
+  left: 400px;
+
+`;
+
+export const ModalImage = styled.img`
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  margin: 50px auto;
+`
