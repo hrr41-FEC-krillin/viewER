@@ -14,7 +14,7 @@ function Cast() {
   this.castId = castId;
   this.actor = `${actorFirst[getRandomInt(actorFirst.length - 1, 0)]} ${actorLast[getRandomInt(actorLast.length - 1, 0)]}`;
   this.character = `${characterFirst[getRandomInt(characterFirst.length - 1, 0)]} ${characterLast[getRandomInt(characterLast.length - 1, 0)]}`;
-  this.imageUrl = `https://castphotos.s3-us-west-1.amazonaws.com/${getRandomInt(40, 0)}.png`;
+  this.imageUrl = `https://movie-cast-photos.s3.us-east-2.amazonaws.com/${getRandomInt(25, 1)}.png`;
   this.role = getRandomInt(3, 1);
   castId += 1;
 }
