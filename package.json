@@ -61,5 +61,8 @@
   },
   "bugs": {
     "url": "https://github.com/hrr41-FEC-krillin/castphotos/issues"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
