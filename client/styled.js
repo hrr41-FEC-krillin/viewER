@@ -11,15 +11,17 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const CastWrapper = styled.div`
-  width: 800px;
+  width: 900px;
   margin: 0 auto;
-  // border: 2px solid green;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
 `;
 
 export const CastSection = styled.div`
   width: 800px;
-  margin: 20px auto;
 `;
 
 export const CastHeader = styled.h2`
@@ -43,7 +45,7 @@ export const CastHeader = styled.h2`
     content: ' ';
     display: inline-block;
     background-color: #FA320A;
-    width: 692px;
+    width: 694.66px;
     height: 20px;
     margin-left: 10px;
   }
@@ -131,14 +133,12 @@ export const ErrorMessage = styled.div`
 
 export const BackDrop = styled.div`
   display: ${props => props.display};
-  width: 820px;
+  width: 800px;
   height: 600px;
   margin: 0 auto;
   background-color: rgb(13, 13, 13, 0.8);
   position: absolute;
-  top: 20px;
-  left: 240px;
-
+  top: 25%;
 `;
 
 export const CloseButton = styled.button`
@@ -149,8 +149,9 @@ export const CloseButton = styled.button`
 `;
 
 export const ModalImage = styled.img`
-  width: 400px;
-  height: 500px;
+  display: block;
+  max-width: 600px;
+  max-height: 550px;
   object-fit: cover;
-  margin: 30px 210px;
+  margin: 30px auto;
 `;

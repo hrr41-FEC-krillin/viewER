@@ -78,8 +78,8 @@ class App extends React.Component {
             <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} togglePhotoModal={this.togglePhotoModal}/>
             {viewAllOrLess}
           </CastSection>
-        </CastWrapper>
         <PhotoModal targetImgUrl={this.state.targetImgUrl} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} />
+        </CastWrapper>
       </div>
     )
   }
