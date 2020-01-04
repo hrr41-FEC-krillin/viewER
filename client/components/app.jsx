@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
-import PhotoModal from './photoModal.jsx';
+import PhotoModalCarousel from './PhotoModalCarousel.jsx';
 import styled from 'styled-components';
 import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
@@ -14,11 +14,13 @@ class App extends React.Component {
       viewAll: false,
       error: false,
       showModal: false,
-      targetImgUrl: '',
+      currentImgIdx: null,
     };
     this.fetch = this.fetch.bind(this);
     this.showAll = this.showAll.bind(this);
     this.togglePhotoModal = this.togglePhotoModal.bind(this);
+    this.moveLeft = this.moveLeft.bind(this);
+    this.moveRight = this.moveRight.bind(this);
   }
 
   componentDidMount(){
@@ -41,11 +43,27 @@ class App extends React.Component {
     })
   }
 
-  togglePhotoModal(targetImgUrl) {
+  togglePhotoModal(index) {
     this.setState({
       showModal: !this.state.showModal,
-      targetImgUrl: targetImgUrl,
+      currentImgIdx: index,
     })
+  }
+
+  moveLeft() {
+    if (this.state.currentImgIdx > 0) {
+      this.setState({
+        currentImgIdx: Number(this.state.currentImgIdx) - 1,
+      })
+    }
+  }
+
+  moveRight() {
+    if (this.state.currentImgIdx < this.state.casts.length - 1) {
+      this.setState({
+        currentImgIdx: Number(this.state.currentImgIdx) + 1,
+      })
+    }
   }
 
   showAll(){
@@ -78,7 +96,7 @@ class App extends React.Component {
             <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} togglePhotoModal={this.togglePhotoModal}/>
             {viewAllOrLess}
           </CastSection>
-        <PhotoModal targetImgUrl={this.state.targetImgUrl} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} />
+          <PhotoModalCarousel data={this.state.casts} currentImgIdx={this.state.currentImgIdx} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} moveLeft={this.moveLeft} moveRight={this.moveRight}/>
         </CastWrapper>
       </div>
     )
