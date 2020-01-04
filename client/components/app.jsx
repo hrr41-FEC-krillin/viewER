@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CastPhotos from './castPhotos.jsx';
-import PhotoModal from './photoModal.jsx';
+import PhotoModalCarousel from './PhotoModalCarousel.jsx';
 import styled from 'styled-components';
 import { GlobalStyle, CastWrapper, CastSection, CastHeader, CastViewAll, CastArrowDown, CastArrowUp, ErrorMessage} from '../styled.js';
 
@@ -78,7 +78,7 @@ class App extends React.Component {
             <CastPhotos data={this.state.casts} ifShow={this.state.viewAll} togglePhotoModal={this.togglePhotoModal}/>
             {viewAllOrLess}
           </CastSection>
-        <PhotoModal targetImgUrl={this.state.targetImgUrl} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} />
+        <PhotoModalCarousel targetImgUrl={this.state.targetImgUrl} showModal={this.state.showModal} togglePhotoModal={this.togglePhotoModal} />
         </CastWrapper>
       </div>
     )

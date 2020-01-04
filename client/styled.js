@@ -148,10 +148,32 @@ export const CloseButton = styled.button`
   margin-right: 10px;
 `;
 
+export const Carousel = styled.div`
+  width: 800px;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const ModalImage = styled.img`
   display: block;
   max-width: 600px;
   max-height: 550px;
   object-fit: cover;
   margin: 30px auto;
+`;
+
+export const LeftButton = styled.button`
+  display: block;
+  width: 40px;
+  height: 40px;
+  // padding: 0;
+`;
+
+export const RightButton = styled.button`
+  display: block;
+  width: 40px;
+  height: 40px;
+  // padding: 0;
 `;
