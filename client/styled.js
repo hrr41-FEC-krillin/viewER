@@ -168,12 +168,14 @@ export const LeftButton = styled.button`
   display: block;
   width: 40px;
   height: 40px;
-  // padding: 0;
+  margin-left: 10px;
+  background-color: ${props => props.color};
 `;
 
 export const RightButton = styled.button`
   display: block;
   width: 40px;
   height: 40px;
-  // padding: 0;
+  margin-right: 10px;
+  background-color: ${props => props.color};
 `;

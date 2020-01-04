@@ -8,7 +8,7 @@ class CastPhotos extends React.Component {
   }
 
   handleClick(e) {
-    this.props.togglePhotoModal(e.target.src);
+    this.props.togglePhotoModal(e.target.dataset.idx);
   }
 
   render(){
@@ -18,10 +18,10 @@ class CastPhotos extends React.Component {
     }
     return (
       <CastPhotosDiv>
-        { this.props.data.slice(0, last).map(cast => {
+        { this.props.data.slice(0, last).map((cast, index) => {
           return (
             <CastItem key={cast.castId} onClick={e => this.handleClick(e)}>
-              <CastImg id={cast.castId} src={cast.imageUrl} alt={cast.actor}/>
+              <CastImg id={cast.castId} data-idx={index} src={cast.imageUrl} alt={cast.actor}/>
               <CastActor>{cast.actor}</CastActor>
               <CastCharacter>as {cast.character}</CastCharacter>
             </CastItem>

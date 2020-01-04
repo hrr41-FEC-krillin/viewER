@@ -4,11 +4,11 @@ import { BackDrop, CloseButton, ModalImage, LeftButton, RightButton, Carousel} f
 const PhotoModalCarousel = (props) => {
     return (
       <BackDrop display={props.showModal ? 'visible' : 'none'}>
-        <CloseButton onClick={() => props.togglePhotoModal('')}>X</CloseButton>
+        <CloseButton onClick={() => props.togglePhotoModal()}>X</CloseButton>
         <Carousel>
-          <LeftButton>&lt;</LeftButton>
-          <ModalImage src={props.targetImgUrl} />
-          <RightButton>&gt;</RightButton>
+          <LeftButton onClick={() => props.moveLeft()} color={props.currentImgIdx === 0 ? 'grey' : 'white'}>&lt;</LeftButton>
+          <ModalImage src={props.currentImgIdx !== null ? props.data[props.currentImgIdx].imageUrl : ''} />
+          <RightButton onClick={() => props.moveRight()} color={(props.currentImgIdx === props.data.length - 1) ? 'grey' : 'white'}>&gt;</RightButton>
         </Carousel>
       </BackDrop>
     )
