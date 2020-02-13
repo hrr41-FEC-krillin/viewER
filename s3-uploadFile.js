@@ -33,8 +33,13 @@ s3.createBucket(bucketParams, (err, data) => {
 // Note: (this BUCKET_NAME is the the process.argv[2])
 */
 
-var uploadParams = {Bucket: process.argv[2], Key: '', Body: '', ACL: 'public-read'};
-var file = process.argv[3];
+var uploadParams = {
+  Bucket: 'castphoto-sdk',
+  Key: '',
+  Body: '',
+  ACL: 'public-read'
+};
+var file = './public/bundle.js';
 
 var fs = require('fs');
 var fileStream = fs.createReadStream(file);
@@ -53,4 +58,3 @@ s3.upload (uploadParams, (err, data) => {
     console.log('Upload Success', data.Location);
   }
 })
-// excute in command line: node s3_listbuckets.js BUCKET_NAME FILE_PATH
