@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const CastWrapper = styled.div`
-  width: 900px;
+  width: 800px;
   margin: 0 auto;
   background-color: white;
   display: flex;
